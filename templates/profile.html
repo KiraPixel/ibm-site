@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+{{user['name']}}
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+	<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+		<div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+			<div class="col">
+				<div class="d-flex align-items-end bd-highlight mb-3">
+					<div class="mb-auto p-2 bd-highlight">
+						<img src= '{{user.avatar_url}}'>
+					</div>
+					<div class="align-self-stretch p-2 bd-highlight">
+						<h1 class="display-4 fw-bold lh-1">Профиль: {{user['name']}}</h1>
+						<h5 class="display-10 lh-5">  DiscordID: {{user['id']}}</h5>
+					</div>
+				</div>
+			</div>
+		    
+		    <ul class="d-grid gap-4 my-5 list-unstyled">
+		      <li class="d-flex gap-4">
+		        <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"></use></svg>
+		        <div>
+
+
+		        	{% for i in info%}
+		        	<h5 class="mb-0">{{i}}</h5>
+		        	{{info[i]}}
+		        	{% endfor %}
+
+
+
+
+		        </div>
+		      </li>
+		    </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

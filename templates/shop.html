@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+Товары {{shop.name}}
+{% endblock %}
+
+{% block body %}
+      <main class="container">
+        <div class="my-5 p-3 bg-body border shadow-lg">
+            <h4 class="border-bottom pb-2 mb-0 fw-bold lh-1">Магазин: {{shop.name}}</h4>
+      <div class="d-flex text-muted pt-3">
+        <div class="mb-auto p-2 bd-highlight">
+          <img src= 'https://findicons.com/files/icons/2770/ios_7_icons/100/shop.png'>
+        </div>
+        <div class="pb-3 mb-0 small lh-sm w-100">
+          <span class="d-block">Владелец: {{shop.owner_name}}</span>
+          <span class="d-block">Рейтинг: {{shop.rating}}</span>
+        </div>
+      </div>
+    </main>
+
+<main class="container">
+  <div class="my-5 p-3 bg-body border shadow-lg">
+      <h5 class="border-bottom pb-2 mb-0 fw-bold lh-1">Товары - {{counte}}</h6>
+
+      {% for i in item%}
+
+      <div class="d-flex text-muted pt-3">
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">{{i[2]}}</strong>
+          </div>
+          <span class="d-block">Описание: {{i[3]}}</span>
+          <span class="d-block">Количество: {{i[5]}}</span>
+          <div class="d-flex justify-content-between">
+            <span class="d-block">Цена: {{i[4]}}</span>
+            <a href="/buy/{{i[4]}}" class="btn btn-secondary my-2">Купить товар</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+</main>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+Магазины
+{% endblock %}
+
+{% block body %}
+<main class="container">
+  <div class="my-5 p-3 bg-body border shadow-lg">
+      <h5 class="border-bottom pb-2 mb-0 fw-bold lh-1">Магазины - {{counte}}</h6>
+
+
+      {% for i in info%}
+
+      <div class="d-flex text-muted pt-3">
+        <div class="mb-auto p-2 bd-highlight">
+          <img src= 'https://findicons.com/files/icons/2770/ios_7_icons/100/shop.png'>
+        </div>
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">{{i[0]}}</strong>
+          </div>
+          <span class="d-block">Владелец: {{getownername(i[3])}}</span>
+          <div class="d-flex justify-content-between">
+            <span class="d-block">Рейтинг: {{i[1]}}</span>
+            <a href="/shop/{{i[2]}}" class="btn btn-secondary my-2">Перейти в магазин</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+</main>
+{% endblock %}

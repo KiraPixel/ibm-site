@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+Клиенты
+{% endblock %}
+
+{% block body %}
+<main class="container">
+  <div class="my-5 p-3 bg-body border shadow-lg ">
+      <h5 class="border-bottom pb-2 mb-0 fw-bold  lh-1">Клиенты - {{counteuser}}</h6>
+
+
+      {% for i in info%}
+
+      <div class="d-flex text-muted pt-3">
+        <div class="mb-auto p-2 bd-highlight">
+          <img src= 'https://minotar.net/armor/bust/{{i[0]}}/100.png'>
+        </div>
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">{{i[0]}}</strong>
+          </div>
+          <span class="d-block">{{i[1]}}</span>
+          <div class="d-flex justify-content-between">
+            <span class="d-block">{{i[2]}}</span>
+            <a href="/profile/{{i[3]}}" class="btn btn-secondary my-2 ">Перейти в профиль</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+</main>
+{% endblock %}
